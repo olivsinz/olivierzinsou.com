@@ -6,9 +6,9 @@
 
     <div class="text-xl sm:text-2xl mt-12 sm:mt-20">
       <p>
-        I am a Full-stack software developer. Detail-oriented with over five
-        years of experience, I focus on using my skills to break problems down
-        and deliver solutions that scale to the needs of the business. I'm
+        I am a Full-stack software developer. Detail-oriented, I focus on using
+        my skills to break problems down and deliver solutions that scale to the
+        needs of the business. Enthusiastic about learning new things, I'm
         looking to solve issues on a much larger scale. You can follow me on
         <a
           href="https://twitter.com/zinsouoliviers"
