@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="m-auto">
+  <div class="w-full">
     <Index />
   </div>
 </template>
