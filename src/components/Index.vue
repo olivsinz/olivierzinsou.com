@@ -8,8 +8,11 @@
       <p>
         I am a Full-stack software developer. Detail-oriented, I focus on using
         my skills to break problems down and deliver solutions that scale to the
-        needs of the business. Enthusiastic about learning new things, I'm
-        looking to solve issues on a much larger scale. You can follow me on
+        needs of the business.
+      </p>
+      <p>
+        Enthusiastic about learning new things, I'm looking to solve issues on a
+        much larger scale. You can follow me on
         <a
           href="https://twitter.com/zinsouoliviers"
           target="_blank"
