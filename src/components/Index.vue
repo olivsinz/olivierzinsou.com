@@ -6,7 +6,7 @@
 
     <div class="text-xl sm:text-2xl mt-12 sm:mt-20">
       <p>
-        I am a Full-stack software developer. Detail-oriented, I focus on using
+        I am a Full Stack Software Developer. Detail-oriented, I focus on using
         my skills to break problems down and deliver solutions that scale to the
         needs of the business.
       </p>
