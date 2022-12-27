@@ -10,6 +10,13 @@ module.exports = {
       },
       colors: {
         primary: '#0e0c29',
+        secondary: '00c4cc',
+      },
+      transitionProperty: {
+        top: 'top',
+      },
+      transitionTimingFunction: {
+        custom: 'cubic-bezier(0, 0.8, 0.13, 1)',
       },
     },
   },
