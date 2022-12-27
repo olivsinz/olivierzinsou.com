@@ -13,7 +13,7 @@
         <a
           href="https://twitter.com/zinsouoliviers"
           target="_blank"
-          class="after:absolute after:content-[''] after:-z-[1] after:-inset-x-[0.1em] after:top-[66%] after:bottom-0 after:bg-sky-300/50 after:transition-top after:duration-200 after:ease-custom hover:after:top-0 relative"
+          class="after:absolute after:content-[''] after:-z-[1] after:-inset-x-[0.1em] after:top-[66%] after:bottom-0 after:bg-secondary/50 after:transition-top after:duration-200 after:ease-custom hover:after:top-0 relative"
         >
           Twitter
         </a>
@@ -21,7 +21,7 @@
         <a
           href="https://www.linkedin.com/in/olivierzinsou/"
           target="_blank"
-          class="after:absolute after:content-[''] after:-z-[1] after:-inset-x-[0.1em] after:top-[66%] after:bottom-0 after:bg-sky-300/50 after:transition-top after:duration-200 after:ease-custom hover:after:top-0 relative"
+          class="after:absolute after:content-[''] after:-z-[1] after:-inset-x-[0.1em] after:top-[66%] after:bottom-0 after:bg-secondary/50 after:transition-top after:duration-200 after:ease-custom hover:after:top-0 relative"
         >
           LinkedIn
         </a>
@@ -29,7 +29,7 @@
         <a
           href="https://github.com/olivsinz/"
           target="_blank"
-          class="after:absolute after:content-[''] after:-z-[1] after:-inset-x-[0.1em] after:top-[66%] after:bottom-0 after:bg-sky-300/50 after:transition-top after:duration-200 after:ease-custom hover:after:top-0 relative"
+          class="after:absolute after:content-[''] after:-z-[1] after:-inset-x-[0.1em] after:top-[66%] after:bottom-0 after:bg-secondary/50 after:transition-top after:duration-200 after:ease-custom hover:after:top-0 relative"
         >
           GitHub
         </a>
