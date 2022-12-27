@@ -8,21 +8,24 @@
       <p>
         I am a full-stack software developer. You can follow me on
         <a
-          href=""
+          href="https://twitter.com/zinsouoliviers"
+          target="_blank"
           class="after:absolute after:content-[''] after:-z-[1] after:-inset-x-[0.1em] after:top-[66%] after:bottom-0 after:bg-sky-300/50 after:transition-top after:duration-200 after:ease-custom hover:after:top-0 relative"
         >
           Twitter
         </a>
         where I mostly tweet about my journey. You can also find me on
         <a
-          href=""
+          href="https://www.linkedin.com/in/olivierzinsou/"
+          target="_blank"
           class="after:absolute after:content-[''] after:-z-[1] after:-inset-x-[0.1em] after:top-[66%] after:bottom-0 after:bg-sky-300/50 after:transition-top after:duration-200 after:ease-custom hover:after:top-0 relative"
         >
           LinkedIn
         </a>
         and
         <a
-          href=""
+          href="https://github.com/olivsinz/"
+          target="_blank"
           class="after:absolute after:content-[''] after:-z-[1] after:-inset-x-[0.1em] after:top-[66%] after:bottom-0 after:bg-sky-300/50 after:transition-top after:duration-200 after:ease-custom hover:after:top-0 relative"
         >
           GitHub
