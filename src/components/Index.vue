@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div>
+  <div class="max-w-6x mx-auto min-h-screen">
     <h1 class="text-4xl font-bold">Hi, I'm Olivier 👋</h1>
 
     <div>
