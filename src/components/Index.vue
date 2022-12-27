@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div class="max-w-3xl mx-auto my-autox xmt-20 xsm:mt-40 px-6 md:px-10">
+  <div class="max-w-3xl mx-auto xmt-20 xsm:mt-40 px-6 md:px-10">
     <h1 class="text-4xl sm:text-6xl font-extrabold">Hi, I'm Olivier 👋</h1>
 
     <div class="text-xl sm:text-2xl mt-12 sm:mt-20">
