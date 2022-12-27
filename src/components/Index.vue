@@ -4,7 +4,7 @@
   <div class="max-w-6x mx-auto min-h-screen">
     <h1 class="text-4xl font-bold">Hi, I'm Olivier 👋</h1>
 
-    <div>
+    <div class="text-xl">
       <p>I am a full-stack software developer.</p>
       <p>
         You can follow me on <a href="">Twitter</a> where I mostly tweet about
