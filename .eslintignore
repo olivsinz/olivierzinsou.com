@@ -1,0 +1,15 @@
+public/*
+node_modules/*
+README.md
+package-lock.json
+package.json
+postcss.config.js
+.github/*
+/public/build
+/public/hot
+.env
+.env.backup
+npm-debug.log
+yarn-error.log
+/.idea
+/.vscode
