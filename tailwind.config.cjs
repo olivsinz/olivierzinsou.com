@@ -10,7 +10,7 @@ module.exports = {
       },
       colors: {
         primary: '#0e0c29',
-        secondary: '00c4cc',
+        secondary: '#00c4cc',
       },
       transitionProperty: {
         top: 'top',
