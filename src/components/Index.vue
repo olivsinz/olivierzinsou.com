@@ -8,7 +8,7 @@
       <p>I am a full-stack software developer.</p>
       <p>
         You can follow me on <a href="">Twitter</a> where I mostly tweet about
-        my journey.
+        my journey. You can also find me on LinkedIn and GitHub.
       </p>
     </div>
   </div>
