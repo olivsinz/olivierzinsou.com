@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Lato', ...defaultTheme.fontFamily.sans],
+        sans: ['Outfit', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         primary: '#0e0c29',
