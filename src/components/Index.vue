@@ -5,7 +5,7 @@
     <div class="max-w-xl md:max-w-3xl mx-auto px-6 md:px-10 relative z-10">
       <h1 class="text-4xl sm:text-6xl font-extrabold">Hi, I'm Olivier 👋</h1>
 
-      <div class="text-2xl sm:text-2xl mt-12 sm:mt-20">
+      <div class="text-xl sm:text-2xl mt-12 sm:mt-20">
         <p>
           I am a Full Stack Software Developer. I focus on using my skills to
           break problems down and deliver solutions that scale to the needs of
