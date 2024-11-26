@@ -7,12 +7,10 @@
 
       <div class="text-xl sm:text-2xl mt-12 sm:mt-20">
         <p>
-          I am a Full Stack Software Developer. I focus on using my skills to
-          break problems down and deliver solutions that scale to the needs of
-          the business.
+          I am a full-stack software developer dedicated to using my skills to break problems down and deliver solutions that scale to the needs of the business.
         </p>
         <p>
-          I'm determined to use my expertise to take on new challenges and contribute to major projects. You can follow me on
+          I'm determined to use my expertise to tackle new challenges and contribute to major projects. Connect with me on
           <a
             href="https://twitter.com/zinsouoliviers"
             target="_blank"
