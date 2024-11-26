@@ -32,9 +32,8 @@
             target="_blank"
             class="after:absolute after:content-[''] after:-z-[1] after:-inset-x-[0.1em] after:top-[66%] after:bottom-0 after:bg-secondary/50 after:transition-top after:duration-200 after:ease-custom hover:after:top-0 relative"
           >
-            GitHub
+            GitHub.
           </a>
-          .
         </p>
       </div>
     </div>
