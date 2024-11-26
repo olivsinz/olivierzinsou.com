@@ -12,8 +12,7 @@
           the business.
         </p>
         <p>
-          Enthusiastic about learning new things, I'm looking to solve issues on
-          a much larger scale. You can follow me on
+          I'm determined to use my expertise to take on new challenges and contribute to major projects. You can follow me on
           <a
             href="https://twitter.com/zinsouoliviers"
             target="_blank"
