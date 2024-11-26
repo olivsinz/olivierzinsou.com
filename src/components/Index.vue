@@ -18,7 +18,7 @@
           >
             Twitter
           </a>
-          where I mostly tweet about my journey. You can also find me on
+          where I mostly tweet about my journey or find me on
           <a
             href="https://www.linkedin.com/in/olivierzinsou/"
             target="_blank"
