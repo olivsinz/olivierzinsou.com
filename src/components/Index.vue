@@ -101,7 +101,7 @@
                   class="w-full h-auto"
                 />
               </div>
-              <div class="mt-6 flex items-center">
+              <div class="mt-3 flex items-center">
                 <h3
                   class="group text-base font-medium text-neutral-900 sm:text-lg"
                 >
@@ -120,7 +120,7 @@
                 </svg>
               </div>
               <p
-                class="group mt-3 text-base font-[350] text-neutral-700 sm:text-lg"
+                class="group mt-2 text-base font-[350] text-neutral-700 sm:text-lg"
               >
                 {{ project.description }}
               </p>
