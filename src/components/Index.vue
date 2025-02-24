@@ -76,7 +76,7 @@
       </h1>
       <div class="mx-auto lg:text-left mt-8 md:mt-16">
         <div
-          class="grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 sm:gap-y-12"
+          class="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16"
         >
           <div v-for="project in projects" :key="project.name" class="group">
             <a :href="project.link" target="_blank">
