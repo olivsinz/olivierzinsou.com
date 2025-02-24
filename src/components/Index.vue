@@ -6,21 +6,21 @@
       name: 'Espoir Canadien',
       description:
         'A feature-rich platform with Laravel, optimized for a smooth user experience.',
-      image: '../../public/01-espoir-canadien.png',
+      image: '/01-espoir-canadien.png',
       link: 'https://espoircanadien.com',
     },
     {
       name: 'IMUXT',
       description:
         'A business web solution built with modern tools, optimized for speed and usability.',
-      image: '../../public/02-imuxt.png',
+      image: '/02-imuxt.png',
       link: 'https://www.imuxt.com/',
     },
     {
       name: 'UMÒJA',
       description:
         "A bespoke landing page that complements Umoja's brand identity.",
-      image: '../../public/03-umoja.png',
+      image: '/03-umoja.png',
       link: 'https://umoja-six.vercel.app',
     },
   ]);
