@@ -29,7 +29,7 @@
 <template>
   <div class="min-h-full py-32">
     <section
-      class="max-w-2xl md:max-w-3xl mx-auto px-6 text-center relative z-10 md:pt-10"
+      class="max-w-2xl md:max-w-3xl mx-auto px-8 text-center relative z-10 md:pt-10"
     >
       <h1 class="text-4xl font-bold mb-6 md:mb-10 text-slate-800">
         Hi, I'm Olivier 👋
@@ -68,7 +68,7 @@
       </p>
     </section>
 
-    <section class="max-w-6xl mx-auto px-6 mt-16 md:mt-32 relative z-10">
+    <section class="max-w-6xl mx-auto px-4 mt-16 md:mt-32 relative z-10">
       <h1
         class="text-4xl sm:text-4xl text-center font-bold sm:px-8 text-slate-800"
       >
