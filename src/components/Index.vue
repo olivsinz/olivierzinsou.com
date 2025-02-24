@@ -28,7 +28,9 @@
 
 <template>
   <div class="min-h-full py-32">
-    <section class="max-w-3xl mx-auto px-6 text-center relative z-10 md:pt-10">
+    <section
+      class="max-w-3xl mx-auto px-10 md:px-6 text-center relative z-10 md:pt-10"
+    >
       <h1 class="text-4xl font-bold mb-6 md:mb-10 text-slate-800">
         Hi, I'm Olivier 👋
       </h1>
@@ -39,7 +41,7 @@
         thrive on tackling new challenges and contributing to impactful
         projects.
       </p>
-      <p class="mt-4 md:mt-8 text-lg text-slate-800">
+      <p class="mt-8 text-lg text-slate-800">
         Connect with me on
         <a
           href="https://twitter.com/zinsouoliviers"
@@ -66,12 +68,14 @@
       </p>
     </section>
 
-    <section class="max-w-6xl mx-auto px-6 mt-32 text-center relative z-10">
-      <h1 class="text-4xl sm:text-4xl font-bold sm:px-8 text-slate-800">
+    <section class="max-w-6xl mx-auto px-6 mt-16 md:mt-32 relative z-10">
+      <h1
+        class="text-4xl sm:text-4xl text-center font-bold sm:px-8 text-slate-800"
+      >
         Featured works
       </h1>
       <div
-        class="mx-auto max-w-screen-lgx px-4 sm:px-8 lg:px-12 lg:text-left mt-16"
+        class="mx-auto max-w-screen-lgx px-4 sm:px-8 lg:px-12 lg:text-left mt-8 md:mt-16"
       >
         <div
           class="grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 sm:gap-y-12"
