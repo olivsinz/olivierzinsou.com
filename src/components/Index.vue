@@ -101,7 +101,7 @@
                   class="w-full h-auto"
                 />
               </div>
-              <div class="mt-6 flex items-center sm:mt-8">
+              <div class="mt-6 flex items-center">
                 <h3
                   class="group text-base font-medium text-neutral-900 sm:text-lg"
                 >
