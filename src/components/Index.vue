@@ -10,18 +10,18 @@
       link: 'https://espoircanadien.com',
     },
     {
-      name: 'Best Shopify Stores',
-      description:
-        'An awe-inspiring gallery to celebrate the design, creativity and innovation of online stores built with Shopify.',
-      image: '/04-best-shopify-stores.png',
-      link: '#',
-    },
-    {
       name: 'UMÒJA',
       description:
         "A bespoke landing page that complements Umoja's brand identity.",
       image: '/03-umoja.png',
       link: 'https://umoja-six.vercel.app',
+    },
+    {
+      name: 'Best Shopify Stores',
+      description:
+        'An awe-inspiring gallery to celebrate the design, creativity and innovation of online stores built with Shopify.',
+      image: '/04-best-shopify-stores.png',
+      link: '#',
     },
     {
       name: 'IMUXT',
