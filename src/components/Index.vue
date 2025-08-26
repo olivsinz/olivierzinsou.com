@@ -10,11 +10,11 @@
       link: 'https://espoircanadien.com',
     },
     {
-      name: 'IMUXT',
+      name: 'Best Shopify Stores',
       description:
-        'A business web solution built with modern tools, optimized for speed and usability.',
-      image: '/02-imuxt.png',
-      link: 'https://www.imuxt.com/',
+        'An awe-inspiring gallery to celebrate the design, creativity and innovation of online stores built with Shopify.',
+      image: '/04-best-shopify-stores.png',
+      link: '#',
     },
     {
       name: 'UMÒJA',
@@ -22,6 +22,13 @@
         "A bespoke landing page that complements Umoja's brand identity.",
       image: '/03-umoja.png',
       link: 'https://umoja-six.vercel.app',
+    },
+    {
+      name: 'IMUXT',
+      description:
+        'A business web solution built with modern tools, optimized for speed and usability.',
+      image: '/02-imuxt.png',
+      link: '#',
     },
   ]);
 </script>
