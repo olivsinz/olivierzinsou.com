@@ -46,7 +46,7 @@
         problems and delivering scalable solutions that align with business
         goals. With a drive for innovation and a results-oriented mindset, I
         thrive on tackling new challenges and contributing to impactful
-        projects.
+        projects. Welcome...
       </p>
       <p class="mt-8 text-lg text-slate-800">
         Connect with me on
