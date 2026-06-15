@@ -1,7 +1,29 @@
-# Vue 3 + Vite
+# olivierzinsou.com
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Personal portfolio of Olivier ZINSOU — Senior Full Stack Developer.
 
-## Recommended IDE Setup
+**Live:** https://olivierzinsou.vercel.app
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Stack
+
+- [Vue 3](https://vuejs.org) (Composition API, `<script setup>`)
+- [Vite 4](https://vitejs.dev)
+- [Tailwind CSS 3](https://tailwindcss.com)
+- [Web3Forms](https://web3forms.com) for contact form
+
+## Local dev
+
+```bash
+npm install
+npm run dev
+```
+
+## Commands
+
+| Command | Description |
+|---|---|
+| `npm run dev` | Start dev server at localhost:5173 |
+| `npm run build` | Production build → `dist/` |
+| `npm run preview` | Preview built output |
+| `npm run lint` | ESLint fix on `src/` |
+| `npm run format` | Prettier format |
