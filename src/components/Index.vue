@@ -1,7 +1,36 @@
 <script setup>
-  import { reactive } from 'vue';
+  import { ref } from 'vue';
 
-  const projects = reactive([
+  const WEB3FORMS_KEY = 'c3119904-1279-405c-a94a-d5478ad70d70';
+
+  const form = ref({ name: '', email: '', message: '' });
+  const status = ref('idle'); // idle | loading | success | error
+
+  async function submitForm() {
+    status.value = 'loading';
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ access_key: WEB3FORMS_KEY, ...form.value }),
+      });
+      const data = await res.json();
+      status.value = data.success ? 'success' : 'error';
+      if (data.success) form.value = { name: '', email: '', message: '' };
+    } catch {
+      status.value = 'error';
+    }
+  }
+
+  const stack = [
+    { label: 'Backend',   skills: ['Laravel', 'PHP 8+', 'Symfony', 'Filament', 'REST API'] },
+    { label: 'Frontend',  skills: ['Vue.js 3', 'TypeScript', 'Inertia.js', 'Tailwind CSS', 'Alpine.js', 'Livewire'] },
+    { label: 'Database',  skills: ['PostgreSQL', 'MySQL', 'Redis'] },
+    { label: 'DevOps',    skills: ['AWS', 'Docker', 'GitHub Actions', 'Laravel Forge', 'Vercel'] },
+    { label: 'Testing',   skills: ['Pest', 'PHPUnit', 'PHPStan', 'Sentry'] },
+  ];
+
+  const projects = [
     {
       name: 'Espoir Canadien',
       description:
@@ -21,16 +50,10 @@
       description:
         'An awe-inspiring gallery to celebrate the design, creativity and innovation of online stores built with Shopify.',
       image: '/04-best-shopify-stores.png',
-      link: '#',
+      link: null,
+      available: false,
     },
-    {
-      name: 'IMUXT',
-      description:
-        'A business web solution built with modern tools, optimized for speed and usability.',
-      image: '/02-imuxt.png',
-      link: '#',
-    },
-  ]);
+  ];
 </script>
 
 <template>
@@ -42,17 +65,17 @@
         Hi, I'm Olivier 👋
       </h1>
       <p class="text-lg sm:text-xl leading-relaxed text-slate-800">
-        I am a full-stack software developer committed to breaking down complex
-        problems and delivering scalable solutions that align with business
-        goals. With a drive for innovation and a results-oriented mindset, I
-        thrive on tackling new challenges and contributing to impactful
-        projects.
+        Senior Full Stack Developer with 8+ years of experience building SaaS
+        platforms and enterprise applications. I specialize in PHP/Laravel and
+        Vue.js, with a focus on clean architecture, automated testing, and
+        shipping reliable products end to end.
       </p>
       <p class="mt-8 text-lg text-slate-800">
         Connect with me on
         <a
           href="https://twitter.com/zinsouoliviers"
           target="_blank"
+          rel="noopener noreferrer"
           class="text-blue-500 hover:underline"
         >
           Twitter</a
@@ -60,6 +83,7 @@
         <a
           href="https://www.linkedin.com/in/olivierzinsou/"
           target="_blank"
+          rel="noopener noreferrer"
           class="text-blue-500 hover:underline"
         >
           LinkedIn
@@ -68,6 +92,7 @@
         <a
           href="https://github.com/olivsinz/"
           target="_blank"
+          rel="noopener noreferrer"
           class="text-blue-500 hover:underline"
         >
           GitHub </a
@@ -75,46 +100,61 @@
       </p>
     </section>
 
+    <section class="max-w-2xl md:max-w-3xl mx-auto px-8 mt-16 md:mt-24 relative z-10">
+      <div class="flex flex-col gap-4">
+        <div v-for="group in stack" :key="group.label" class="flex flex-wrap items-center gap-2">
+          <span class="text-xs font-medium text-slate-400 w-20 shrink-0">{{ group.label }}</span>
+          <span
+            v-for="skill in group.skills"
+            :key="skill"
+            class="text-sm px-3 py-1 rounded-full bg-slate-100 text-slate-700"
+          >
+            {{ skill }}
+          </span>
+        </div>
+      </div>
+    </section>
+
     <section class="max-w-6xl mx-auto px-4 mt-16 md:mt-32 relative z-10">
-      <h1
-        class="text-4xl sm:text-4xl text-center font-bold sm:px-8 text-slate-800"
+      <h2
+        class="text-4xl text-center font-bold sm:px-8 text-slate-800"
       >
         Featured works
-      </h1>
+      </h2>
       <div class="mx-auto lg:text-left mt-8 md:mt-16">
         <div
           class="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16"
         >
-          <div v-for="project in projects" :key="project.name" class="group">
-            <a :href="project.link" target="_blank">
-              <div
-                class="overflow-hidden rounded-b-2xl rounded-t-2xl border-2 border-gray-200 transition-shadow duration-300 group-hover:translate-y-[-0.125rem] group-hover:shadow-lg"
-              >
+          <div v-for="(project, index) in projects" :key="project.name" class="group">
+            <component
+              :is="project.available === false ? 'div' : 'a'"
+              v-bind="project.available === false ? {} : { href: project.link, target: '_blank', rel: 'noopener noreferrer' }"
+            >
+              <div class="relative overflow-hidden rounded-2xl border-2 border-gray-200 transition-shadow duration-300 group-hover:translate-y-[-0.125rem] group-hover:shadow-lg">
                 <img
                   :src="project.image"
                   :alt="`Project - ${project.name}`"
-                  loading="lazy"
-                  fetchpriority="high"
+                  :loading="index < 2 ? 'eager' : 'lazy'"
+                  :fetchpriority="index < 2 ? 'high' : 'auto'"
                   decoding="async"
                   width="1349"
                   height="1350"
-                  style="
-                    color: transparent;
-                    width: 100%;
-                    height: auto;
-                    inset: 0px;
-                  "
-                  sizes="100vw"
+                  style="color: transparent; width: 100%; height: auto;"
                   class="w-full h-auto"
                 />
+                <span
+                  v-if="project.available === false"
+                  class="absolute top-3 left-3 bg-white/90 text-neutral-700 text-xs font-medium px-2.5 py-1 rounded-full border border-gray-200"
+                >
+                  Coming soon
+                </span>
               </div>
               <div class="mt-4 flex items-center">
-                <h3
-                  class="group text-base font-medium text-neutral-900 sm:text-lg"
-                >
+                <h3 class="text-base font-medium text-neutral-900 sm:text-lg">
                   {{ project.name }}
                 </h3>
                 <svg
+                  v-if="project.available !== false"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -126,15 +166,68 @@
                   ></path>
                 </svg>
               </div>
-              <p
-                class="group mt-2 text-base font-[350] text-neutral-700 sm:text-lg"
-              >
+              <p class="mt-2 text-base font-normal text-neutral-700 sm:text-lg">
                 {{ project.description }}
               </p>
-            </a>
+            </component>
           </div>
         </div>
       </div>
+    </section>
+
+    <section class="max-w-2xl mx-auto px-8 mt-24 md:mt-40 relative z-10 text-center">
+      <h2 class="text-4xl font-bold text-slate-800">Get in touch</h2>
+      <p class="mt-4 text-lg text-slate-600">
+        Have a project in mind or just want to say hi? Drop me a message.
+      </p>
+
+      <form @submit.prevent="submitForm" class="mt-10 text-left space-y-5">
+        <div>
+          <label class="block text-sm font-medium text-slate-700 mb-1">Name</label>
+          <input
+            v-model="form.name"
+            type="text"
+            required
+            placeholder="John Doe"
+            class="w-full rounded-xl border border-gray-200 px-4 py-3 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
+          />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-slate-700 mb-1">Email</label>
+          <input
+            v-model="form.email"
+            type="email"
+            required
+            placeholder="john@example.com"
+            class="w-full rounded-xl border border-gray-200 px-4 py-3 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
+          />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-slate-700 mb-1">Message</label>
+          <textarea
+            v-model="form.message"
+            required
+            rows="5"
+            placeholder="Tell me about your project..."
+            class="w-full rounded-xl border border-gray-200 px-4 py-3 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition resize-none"
+          />
+        </div>
+
+        <button
+          type="submit"
+          :disabled="status === 'loading'"
+          class="w-full bg-primary text-white font-medium py-3 rounded-xl hover:opacity-90 transition disabled:opacity-50"
+        >
+          {{ status === 'loading' ? 'Sending…' : 'Send message' }}
+        </button>
+
+        <p v-if="status === 'success'" class="text-center text-green-600 text-sm">
+          Message sent! I'll get back to you soon.
+        </p>
+        <p v-if="status === 'error'" class="text-center text-red-500 text-sm">
+          Something went wrong. Please try again.
+        </p>
+      </form>
     </section>
 
     <div class="bg-pattern h-full absolute top-0 inset-x-0 z-[0]">
@@ -156,6 +249,12 @@
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    section {
+      animation: none;
     }
   }
 </style>
