@@ -1,10 +1,12 @@
 <script setup>
-  import { ref } from 'vue';
+  import { ref, watch } from 'vue';
 
   const WEB3FORMS_KEY = 'c3119904-1279-405c-a94a-d5478ad70d70';
 
   const form = ref({ name: '', email: '', message: '' });
   const status = ref('idle'); // idle | loading | success | error
+
+  watch(form, () => { if (status.value !== 'idle') status.value = 'idle'; }, { deep: true });
 
   async function submitForm() {
     status.value = 'loading';
@@ -34,14 +36,14 @@
     {
       name: 'Espoir Canadien',
       description:
-        'A feature-rich platform with Laravel, optimized for a smooth user experience.',
+        'A Canadian immigration services platform built with Laravel — guiding immigrants and connecting employers with talent.',
       image: '/01-espoir-canadien.png',
       link: 'https://espoircanadien.com',
     },
     {
       name: 'UMÒJA',
       description:
-        "A bespoke landing page that complements Umoja's brand identity.",
+        'A landing page for a plant-based shoe brand — clean design built to match the brand identity and drive conversions.',
       image: '/03-umoja.png',
       link: 'https://umoja-six.vercel.app',
     },
@@ -95,7 +97,7 @@
           rel="noopener noreferrer"
           class="text-blue-500 hover:underline"
         >
-          GitHub </a
+          GitHub</a
         >.
       </p>
     </section>
@@ -183,8 +185,9 @@
 
       <form @submit.prevent="submitForm" class="mt-10 text-left space-y-5">
         <div>
-          <label class="block text-sm font-medium text-slate-700 mb-1">Name</label>
+          <label for="contact-name" class="block text-sm font-medium text-slate-700 mb-1">Name</label>
           <input
+            id="contact-name"
             v-model="form.name"
             type="text"
             required
@@ -193,8 +196,9 @@
           />
         </div>
         <div>
-          <label class="block text-sm font-medium text-slate-700 mb-1">Email</label>
+          <label for="contact-email" class="block text-sm font-medium text-slate-700 mb-1">Email</label>
           <input
+            id="contact-email"
             v-model="form.email"
             type="email"
             required
@@ -203,8 +207,9 @@
           />
         </div>
         <div>
-          <label class="block text-sm font-medium text-slate-700 mb-1">Message</label>
+          <label for="contact-message" class="block text-sm font-medium text-slate-700 mb-1">Message</label>
           <textarea
+            id="contact-message"
             v-model="form.message"
             required
             rows="5"
@@ -229,6 +234,12 @@
         </p>
       </form>
     </section>
+
+    <footer class="max-w-2xl mx-auto px-8 mt-24 pb-12 relative z-10 text-center">
+      <p class="text-sm text-slate-400">
+        © {{ new Date().getFullYear() }} Olivier ZINSOU
+      </p>
+    </footer>
 
     <div class="bg-pattern h-full absolute top-0 inset-x-0 z-[0]">
       <div class="w-full h-full bg-gradient-to-t from-white"></div>
