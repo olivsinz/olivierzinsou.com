@@ -63,6 +63,10 @@
     <section
       class="max-w-2xl md:max-w-3xl mx-auto px-8 text-center relative z-10 md:pt-10"
     >
+      <div class="inline-flex items-center gap-2 bg-green-50 text-green-700 text-sm font-medium px-3 py-1 rounded-full border border-green-200 mb-6">
+        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+        Open to work
+      </div>
       <h1 class="text-4xl font-bold mb-6 md:mb-10 text-slate-800">
         Hi, I'm Olivier 👋
       </h1>
@@ -80,7 +84,7 @@
           rel="noopener noreferrer"
           class="text-blue-500 hover:underline"
         >
-          Twitter</a
+          X</a
         >,
         <a
           href="https://www.linkedin.com/in/olivierzinsou/"
