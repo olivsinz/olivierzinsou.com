@@ -61,49 +61,62 @@
 <template>
   <div class="min-h-full py-32">
     <section
-      class="max-w-2xl md:max-w-3xl mx-auto px-8 text-center relative z-10 md:pt-10"
+      class="max-w-2xl md:max-w-3xl mx-auto px-8 relative z-10 md:pt-10"
     >
-      <div class="inline-flex items-center gap-2 bg-green-50 text-green-700 text-sm font-medium px-3 py-1 rounded-full border border-green-200 mb-6">
-        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-        Open to work
+      <div class="flex flex-col md:flex-row md:items-center md:gap-12">
+        <div class="flex flex-col items-center md:items-start shrink-0 mb-8 md:mb-0">
+          <img
+            src="/me.png"
+            alt="Olivier ZINSOU"
+            width="160"
+            height="160"
+            class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover ring-2 ring-slate-200"
+          />
+          <div class="inline-flex items-center gap-2 bg-green-50 text-green-700 text-sm font-medium px-3 py-1 rounded-full border border-green-200 mt-4">
+            <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+            Open to work
+          </div>
+        </div>
+        <div class="text-center md:text-left">
+          <h1 class="text-4xl font-bold mb-4 md:mb-6 text-slate-800">
+            Hi, I'm Olivier 👋
+          </h1>
+          <p class="text-lg sm:text-xl leading-relaxed text-slate-800">
+            Senior Full Stack Developer with 8+ years of experience building SaaS
+            platforms and enterprise applications. I specialize in PHP/Laravel and
+            Vue.js, with a focus on clean architecture, automated testing, and
+            shipping reliable products end to end.
+          </p>
+          <p class="mt-6 text-lg text-slate-800">
+            Connect with me on
+            <a
+              href="https://twitter.com/zinsouoliviers"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-blue-500 hover:underline"
+            >
+              X</a
+            >,
+            <a
+              href="https://www.linkedin.com/in/olivierzinsou/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-blue-500 hover:underline"
+            >
+              LinkedIn
+            </a>
+            and
+            <a
+              href="https://github.com/olivsinz/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-blue-500 hover:underline"
+            >
+              GitHub</a
+            >.
+          </p>
+        </div>
       </div>
-      <h1 class="text-4xl font-bold mb-6 md:mb-10 text-slate-800">
-        Hi, I'm Olivier 👋
-      </h1>
-      <p class="text-lg sm:text-xl leading-relaxed text-slate-800">
-        Senior Full Stack Developer with 8+ years of experience building SaaS
-        platforms and enterprise applications. I specialize in PHP/Laravel and
-        Vue.js, with a focus on clean architecture, automated testing, and
-        shipping reliable products end to end.
-      </p>
-      <p class="mt-8 text-lg text-slate-800">
-        Connect with me on
-        <a
-          href="https://twitter.com/zinsouoliviers"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-blue-500 hover:underline"
-        >
-          X</a
-        >,
-        <a
-          href="https://www.linkedin.com/in/olivierzinsou/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-blue-500 hover:underline"
-        >
-          LinkedIn
-        </a>
-        and
-        <a
-          href="https://github.com/olivsinz/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-blue-500 hover:underline"
-        >
-          GitHub</a
-        >.
-      </p>
     </section>
 
     <section class="max-w-2xl md:max-w-3xl mx-auto px-8 mt-16 md:mt-24 relative z-10">
