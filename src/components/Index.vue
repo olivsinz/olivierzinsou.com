@@ -105,15 +105,17 @@
     <section class="max-w-2xl md:max-w-3xl mx-auto px-8 mt-16 md:mt-24 relative z-10">
       <h2 class="text-lg font-semibold text-slate-800 mb-6">Tech stack</h2>
       <div class="flex flex-col gap-4">
-        <div v-for="group in stack" :key="group.label" class="flex flex-wrap items-center gap-2">
-          <span class="text-xs font-medium text-slate-400 w-20 shrink-0">{{ group.label }}</span>
-          <span
-            v-for="skill in group.skills"
-            :key="skill"
-            class="text-sm px-3 py-1 rounded-full bg-slate-100 text-slate-700"
-          >
-            {{ skill }}
-          </span>
+        <div v-for="group in stack" :key="group.label" class="flex flex-col sm:flex-row sm:items-center gap-2">
+          <span class="text-xs font-medium text-slate-400 sm:w-20 sm:shrink-0">{{ group.label }}</span>
+          <div class="flex flex-wrap gap-2">
+            <span
+              v-for="skill in group.skills"
+              :key="skill"
+              class="text-sm px-3 py-1 rounded-full bg-slate-100 text-slate-700"
+            >
+              {{ skill }}
+            </span>
+          </div>
         </div>
       </div>
     </section>
@@ -126,7 +128,7 @@
       </h2>
       <div class="mx-auto lg:text-left mt-8 md:mt-16">
         <div
-          class="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16"
+          class="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 sm:gap-y-16"
         >
           <div v-for="(project, index) in projects" :key="project.name" class="group">
             <component
