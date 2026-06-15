@@ -36,21 +36,21 @@
     {
       name: 'Espoir Canadien',
       description:
-        'A Canadian immigration services platform built with Laravel — guiding immigrants and connecting employers with talent.',
+        'A Canadian immigration services platform built with Laravel, guiding immigrants and connecting employers with talent.',
       image: '/01-espoir-canadien.png',
       link: 'https://espoircanadien.com',
     },
     {
       name: 'UMÒJA',
       description:
-        'A landing page for a plant-based shoe brand — clean design built to match the brand identity and drive conversions.',
+        'A landing page for a plant-based shoe brand, clean design built to match the brand identity and drive conversions.',
       image: '/03-umoja.png',
       link: 'https://umoja-six.vercel.app',
     },
     {
       name: 'Best Shopify Stores',
       description:
-        'An awe-inspiring gallery to celebrate the design, creativity and innovation of online stores built with Shopify.',
+        'A curated gallery showcasing the best-designed Shopify stores, built to inspire merchants and highlight e-commerce excellence.',
       image: '/04-best-shopify-stores.png',
       link: null,
       available: false,
@@ -103,6 +103,7 @@
     </section>
 
     <section class="max-w-2xl md:max-w-3xl mx-auto px-8 mt-16 md:mt-24 relative z-10">
+      <h2 class="text-lg font-semibold text-slate-800 mb-6">Tech stack</h2>
       <div class="flex flex-col gap-4">
         <div v-for="group in stack" :key="group.label" class="flex flex-wrap items-center gap-2">
           <span class="text-xs font-medium text-slate-400 w-20 shrink-0">{{ group.label }}</span>
@@ -160,6 +161,7 @@
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
+                  aria-hidden="true"
                   class="h-10 w-10 pl-3"
                 >
                   <path
@@ -191,6 +193,7 @@
             v-model="form.name"
             type="text"
             required
+            autocomplete="name"
             placeholder="John Doe"
             class="w-full rounded-xl border border-gray-200 px-4 py-3 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
           />
@@ -202,6 +205,7 @@
             v-model="form.email"
             type="email"
             required
+            autocomplete="email"
             placeholder="john@example.com"
             class="w-full rounded-xl border border-gray-200 px-4 py-3 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
           />
