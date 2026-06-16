@@ -155,13 +155,13 @@
                 />
                 <span
                   v-if="project.available === false"
-                  class="absolute top-3 left-3 bg-white/90 text-neutral-700 text-xs font-medium px-2.5 py-1 rounded-full border border-gray-200"
+                  class="absolute top-3 left-3 bg-white/90 text-slate-600 text-xs font-medium px-2.5 py-1 rounded-full border border-gray-200"
                 >
                   Coming soon
                 </span>
               </div>
               <div class="mt-4 flex items-center">
-                <h3 class="text-base font-medium text-neutral-900 sm:text-lg">
+                <h3 class="text-base font-medium text-slate-800 sm:text-lg">
                   {{ project.name }}
                 </h3>
                 <svg
@@ -178,7 +178,7 @@
                   ></path>
                 </svg>
               </div>
-              <p class="mt-2 text-base font-normal text-neutral-700 sm:text-lg">
+              <p class="mt-2 text-base font-normal text-slate-600 sm:text-lg">
                 {{ project.description }}
               </p>
             </component>
@@ -203,7 +203,7 @@
             required
             autocomplete="name"
             placeholder="John Doe"
-            class="w-full rounded-xl border border-gray-200 px-4 py-3 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
+            class="w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
           />
         </div>
         <div>
@@ -215,7 +215,7 @@
             required
             autocomplete="email"
             placeholder="john@example.com"
-            class="w-full rounded-xl border border-gray-200 px-4 py-3 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
+            class="w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
           />
         </div>
         <div>
@@ -226,7 +226,7 @@
             required
             rows="5"
             placeholder="Tell me about your project..."
-            class="w-full rounded-xl border border-gray-200 px-4 py-3 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition resize-none"
+            class="w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition resize-none"
           />
         </div>
 
