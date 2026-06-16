@@ -81,7 +81,7 @@
           <h1 class="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 md:mb-6 text-slate-800">
             Hi, I'm Olivier ZINSOU 👋
           </h1>
-          <p class="text-lg sm:text-xl leading-relaxed text-slate-800">
+          <p class="text-lg sm:text-xl leading-relaxed text-slate-600">
             Senior Full Stack Developer with 8+ years of experience building SaaS
             platforms and enterprise applications. I specialize in PHP/Laravel and
             Vue.js, with a focus on clean architecture, automated testing, and
@@ -109,10 +109,10 @@
     </section>
 
     <section class="max-w-2xl md:max-w-4xl mx-auto px-8 mt-16 md:mt-24 relative z-10">
-      <h2 class="text-lg font-semibold text-slate-800 mb-6">Tech stack</h2>
+      <h2 class="text-xl font-semibold text-slate-800 mb-6">Tech stack</h2>
       <div class="flex flex-col gap-4">
         <div v-for="group in stack" :key="group.label" class="flex flex-col sm:flex-row sm:items-center gap-2">
-          <span class="text-xs font-medium text-slate-400 sm:w-20 sm:shrink-0">{{ group.label }}</span>
+          <span class="text-sm font-medium text-slate-500 sm:w-20 sm:shrink-0">{{ group.label }}</span>
           <div class="flex flex-wrap gap-2">
             <span
               v-for="skill in group.skills"
