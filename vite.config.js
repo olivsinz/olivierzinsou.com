@@ -1,12 +1,12 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import eslintPlugin from 'vite-plugin-eslint';
+import tailwindcss from '@tailwindcss/vite';
+import eslintPlugin from 'vite-plugin-eslint2';
 import path from 'path';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   base: '/',
-  plugins: [vue(), eslintPlugin()],
+  plugins: [vue(), tailwindcss(), eslintPlugin()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

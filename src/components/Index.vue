@@ -37,7 +37,7 @@
       name: 'Espoir Canadien',
       description:
         'A Canadian immigration services platform built with Laravel, guiding immigrants and connecting employers with talent.',
-      image: '/01-espoir-canadien.png',
+      image: '/01-espoir-canadien.webp',
       link: 'https://espoircanadien.com',
     },
     {
@@ -51,7 +51,7 @@
       name: 'Best Shopify Stores',
       description:
         'A curated gallery showcasing the best-designed Shopify stores, built to inspire merchants and highlight e-commerce excellence.',
-      image: '/04-best-shopify-stores.png',
+      image: '/04-best-shopify-stores.webp',
       link: null,
       available: false,
     },
@@ -64,9 +64,9 @@
       class="max-w-2xl md:max-w-4xl mx-auto px-8 relative z-10 md:pt-10"
     >
       <div class="flex flex-col md:flex-row md:items-center md:gap-12">
-        <div class="flex flex-col items-center md:items-start shrink-0 mb-8 md:mb-0">
+        <div class="flex flex-col items-center shrink-0 mb-8 md:mb-0">
           <img
-            src="/me.png"
+            src="/me.webp"
             alt="Olivier ZINSOU"
             width="160"
             height="160"

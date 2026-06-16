@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 
 public/05-domeguek.png
+.eslintcache
+.playwright-mcp/
