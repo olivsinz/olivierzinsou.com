@@ -61,7 +61,7 @@
 <template>
   <div class="min-h-full py-32">
     <section
-      class="max-w-2xl md:max-w-3xl mx-auto px-8 relative z-10 md:pt-10"
+      class="max-w-2xl md:max-w-4xl mx-auto px-8 relative z-10 md:pt-10"
     >
       <div class="flex flex-col md:flex-row md:items-center md:gap-12">
         <div class="flex flex-col items-center md:items-start shrink-0 mb-8 md:mb-0">
@@ -78,8 +78,8 @@
           </div>
         </div>
         <div class="text-center md:text-left">
-          <h1 class="text-4xl font-bold mb-4 md:mb-6 text-slate-800">
-            Hi, I'm Olivier 👋
+          <h1 class="text-4xl md:text-5xl font-bold mb-4 md:mb-6 text-slate-800">
+            Hi, I'm Olivier ZINSOU 👋
           </h1>
           <p class="text-lg sm:text-xl leading-relaxed text-slate-800">
             Senior Full Stack Developer with 8+ years of experience building SaaS
@@ -204,7 +204,7 @@
         Have a project in mind or just want to say hi? Drop me a message.
       </p>
 
-      <form @submit.prevent="submitForm" class="mt-10 text-left space-y-5">
+      <form class="mt-10 text-left space-y-5" @submit.prevent="submitForm">
         <div>
           <label for="contact-name" class="block text-sm font-medium text-slate-700 mb-1">Name</label>
           <input
