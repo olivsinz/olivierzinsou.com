@@ -78,7 +78,7 @@
           </div>
         </div>
         <div class="text-center md:text-left">
-          <h1 class="text-4xl md:text-5xl font-bold mb-4 md:mb-6 text-slate-800">
+          <h1 class="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 md:mb-6 text-slate-800">
             Hi, I'm Olivier ZINSOU 👋
           </h1>
           <p class="text-lg sm:text-xl leading-relaxed text-slate-800">
@@ -119,7 +119,7 @@
       </div>
     </section>
 
-    <section class="max-w-2xl md:max-w-3xl mx-auto px-8 mt-16 md:mt-24 relative z-10">
+    <section class="max-w-2xl md:max-w-4xl mx-auto px-8 mt-16 md:mt-24 relative z-10">
       <h2 class="text-lg font-semibold text-slate-800 mb-6">Tech stack</h2>
       <div class="flex flex-col gap-4">
         <div v-for="group in stack" :key="group.label" class="flex flex-col sm:flex-row sm:items-center gap-2">
