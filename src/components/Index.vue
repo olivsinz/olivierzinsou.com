@@ -70,6 +70,9 @@
             alt="Olivier ZINSOU"
             width="160"
             height="160"
+            loading="eager"
+            fetchpriority="high"
+            decoding="sync"
             class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover ring-2 ring-slate-200"
           />
           <div class="inline-flex items-center gap-2 bg-green-50 text-green-700 text-sm font-medium px-3 py-1 rounded-full border border-green-200 mt-4">
@@ -132,7 +135,7 @@
       >
         Featured works
       </h2>
-      <div class="mx-auto lg:text-left mt-8 md:mt-16">
+      <div class="mt-8 md:mt-16">
         <div
           class="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 sm:gap-y-16"
         >
@@ -146,16 +149,16 @@
                   :src="project.image"
                   :alt="`Project - ${project.name}`"
                   :loading="index < 2 ? 'eager' : 'lazy'"
-                  :fetchpriority="index < 2 ? 'high' : 'auto'"
+                  :fetchpriority="index < 2 ? 'high' : 'low'"
                   decoding="async"
                   width="1349"
                   height="1350"
-                  style="color: transparent; width: 100%; height: auto;"
+                  style="color: transparent;"
                   class="w-full h-auto"
                 />
                 <span
                   v-if="project.available === false"
-                  class="absolute top-3 left-3 bg-white/90 text-slate-600 text-xs font-medium px-2.5 py-1 rounded-full border border-gray-200"
+                  class="absolute top-3 left-3 bg-white/90 text-slate-600 text-xs font-medium px-2.5 py-1 rounded-full border border-slate-200"
                 >
                   Coming soon
                 </span>
