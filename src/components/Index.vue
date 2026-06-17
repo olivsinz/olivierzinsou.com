@@ -1,8 +1,46 @@
 <script setup>
-  import { ref, watch } from 'vue';
+  import { ref, watch, onMounted } from 'vue';
   import SocialLinks from './SocialLinks.vue';
 
   const year = new Date().getFullYear();
+
+  const themeMode = ref('system');
+
+  onMounted(() => {
+    const stored = localStorage.getItem('theme-mode');
+    if (stored) {
+      themeMode.value = stored;
+      applyTheme(stored);
+    }
+  });
+
+  function applyTheme(mode) {
+    const html = document.documentElement;
+    let isDark;
+    if (mode === 'dark') {
+      isDark = true;
+    } else if (mode === 'light') {
+      isDark = false;
+    } else {
+      isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    html.classList.toggle('dark', isDark);
+
+    if (mode === 'light' || mode === 'dark') {
+      document.querySelectorAll('meta[name="theme-color"]').forEach((el) => {
+        el.setAttribute('content', isDark ? '#030712' : '#ffffff');
+      });
+    } else {
+      document.querySelector('meta[name="theme-color"][media*="light"]')?.setAttribute('content', '#ffffff');
+      document.querySelector('meta[name="theme-color"][media*="dark"]')?.setAttribute('content', '#030712');
+    }
+  }
+
+  function setTheme(mode) {
+    themeMode.value = mode;
+    localStorage.setItem('theme-mode', mode);
+    applyTheme(mode);
+  }
 
   const WEB3FORMS_KEY = 'c3119904-1279-405c-a94a-d5478ad70d70';
 
@@ -76,18 +114,18 @@
             loading="eager"
             fetchpriority="high"
             decoding="sync"
-            class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover ring-2 ring-slate-200"
+            class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover ring-2 ring-slate-200 dark:ring-slate-700"
           />
-          <div class="inline-flex items-center gap-2 bg-green-50 text-green-700 text-sm font-medium px-3 py-1 rounded-full border border-green-200 mt-4">
-            <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+          <div class="inline-flex items-center gap-2 bg-green-50 text-green-700 text-sm font-medium px-3 py-1 rounded-full border border-green-200 dark:bg-green-500/10 dark:text-green-400 dark:border-green-500/30 mt-4">
+            <span class="w-2 h-2 rounded-full bg-green-500 dark:bg-green-400 animate-pulse"></span>
             Open to work
           </div>
         </div>
         <div class="text-center md:text-left">
-          <h1 class="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 md:mb-6 text-slate-800">
+          <h1 class="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 md:mb-6 text-slate-800 dark:text-white">
             Hi, I'm Olivier ZINSOU 👋
           </h1>
-          <p class="text-lg sm:text-xl leading-relaxed text-slate-600">
+          <p class="text-lg sm:text-xl leading-relaxed text-slate-600 dark:text-slate-300">
             Senior Full Stack Developer with 8+ years of experience building SaaS
             platforms and enterprise applications. I specialize in PHP/Laravel and
             Vue.js, with a focus on clean architecture, automated testing, and
@@ -99,15 +137,15 @@
     </section>
 
     <section class="max-w-2xl md:max-w-4xl mx-auto px-8 mt-16 md:mt-24 relative z-10">
-      <h2 class="text-xl font-semibold text-slate-800 mb-6">Tech stack</h2>
+      <h2 class="text-xl font-semibold text-slate-800 dark:text-white mb-6">Tech stack</h2>
       <div class="flex flex-col gap-4">
         <div v-for="group in stack" :key="group.label" class="flex flex-col sm:flex-row sm:items-center gap-2">
-          <span class="text-sm font-medium text-slate-500 sm:w-20 sm:shrink-0">{{ group.label }}</span>
+          <span class="text-sm font-medium text-slate-500 dark:text-slate-400 sm:w-20 sm:shrink-0">{{ group.label }}</span>
           <div class="flex flex-wrap gap-2">
             <span
               v-for="skill in group.skills"
               :key="skill"
-              class="text-sm px-3 py-1 rounded-full bg-slate-100 text-slate-700"
+              class="text-sm px-3 py-1 rounded-full bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300"
             >
               {{ skill }}
             </span>
@@ -118,7 +156,7 @@
 
     <section class="max-w-6xl mx-auto px-4 mt-16 md:mt-32 relative z-10">
       <h2
-        class="text-4xl text-center font-bold sm:px-8 text-slate-800"
+        class="text-4xl text-center font-bold sm:px-8 text-slate-800 dark:text-white"
       >
         Featured works
       </h2>
@@ -131,7 +169,7 @@
               :is="project.available === false ? 'div' : 'a'"
               v-bind="project.available === false ? {} : { href: project.link, target: '_blank', rel: 'noopener noreferrer' }"
             >
-              <div class="relative overflow-hidden rounded-2xl border border-slate-200 transition-[transform,box-shadow] duration-300 group-hover:-translate-y-0.5 group-hover:shadow-lg">
+              <div class="relative overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-700 transition-[transform,box-shadow,border-color] duration-300 group-hover:-translate-y-0.5 group-hover:shadow-lg dark:group-hover:shadow-none dark:group-hover:border-slate-500">
                 <img
                   :src="project.image"
                   :alt="project.name"
@@ -144,13 +182,13 @@
                 />
                 <span
                   v-if="project.available === false"
-                  class="absolute top-3 left-3 bg-white/90 text-slate-600 text-xs font-medium px-2.5 py-1 rounded-full border border-slate-200"
+                  class="absolute top-3 left-3 bg-white/90 text-slate-600 text-xs font-medium px-2.5 py-1 rounded-full border border-slate-200 dark:bg-slate-800/90 dark:text-slate-300 dark:border-slate-700"
                 >
                   Coming soon
                 </span>
               </div>
               <div class="mt-4 flex items-center">
-                <h3 class="text-base font-medium text-slate-800 sm:text-lg">
+                <h3 class="text-base font-medium text-slate-800 dark:text-white sm:text-lg">
                   {{ project.name }}
                 </h3>
                 <svg
@@ -167,7 +205,7 @@
                   ></path>
                 </svg>
               </div>
-              <p class="mt-2 text-base text-slate-600 sm:text-lg">
+              <p class="mt-2 text-base text-slate-600 dark:text-slate-300 sm:text-lg">
                 {{ project.description }}
               </p>
             </component>
@@ -177,14 +215,14 @@
     </section>
 
     <section class="max-w-2xl mx-auto px-8 mt-24 md:mt-40 relative z-10 text-center">
-      <h2 class="text-4xl font-bold text-slate-800">Get in touch</h2>
-      <p class="mt-4 text-lg text-slate-600">
+      <h2 class="text-4xl font-bold text-slate-800 dark:text-white">Get in touch</h2>
+      <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">
         Have a project in mind or just want to say hi? Drop me a message.
       </p>
 
       <form class="mt-10 text-left space-y-5" @submit.prevent="submitForm">
         <div>
-          <label for="contact-name" class="block text-sm font-medium text-slate-700 mb-1">Name</label>
+          <label for="contact-name" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Name</label>
           <input
             id="contact-name"
             v-model="form.name"
@@ -192,11 +230,11 @@
             required
             autocomplete="name"
             placeholder="John Doe"
-            class="w-full rounded-2xl border border-slate-300 px-4 py-3 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
+            class="w-full rounded-2xl border border-slate-300 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 px-4 py-3 text-slate-800 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary dark:focus:ring-secondary/30 dark:focus:border-secondary transition"
           />
         </div>
         <div>
-          <label for="contact-email" class="block text-sm font-medium text-slate-700 mb-1">Email</label>
+          <label for="contact-email" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Email</label>
           <input
             id="contact-email"
             v-model="form.email"
@@ -204,34 +242,34 @@
             required
             autocomplete="email"
             placeholder="john@example.com"
-            class="w-full rounded-2xl border border-slate-300 px-4 py-3 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
+            class="w-full rounded-2xl border border-slate-300 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 px-4 py-3 text-slate-800 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary dark:focus:ring-secondary/30 dark:focus:border-secondary transition"
           />
         </div>
         <div>
-          <label for="contact-message" class="block text-sm font-medium text-slate-700 mb-1">Message</label>
+          <label for="contact-message" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Message</label>
           <textarea
             id="contact-message"
             v-model="form.message"
             required
             rows="5"
             placeholder="Tell me about your project..."
-            class="w-full rounded-2xl border border-slate-300 px-4 py-3 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition resize-none"
+            class="w-full rounded-2xl border border-slate-300 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 px-4 py-3 text-slate-800 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary dark:focus:ring-secondary/30 dark:focus:border-secondary transition resize-none"
           />
         </div>
 
         <button
           type="submit"
           :disabled="status === 'loading'"
-          class="w-full bg-primary text-white font-medium py-3 rounded-2xl hover:opacity-90 transition disabled:opacity-50"
+          class="w-full bg-primary text-white font-medium py-3 rounded-2xl hover:opacity-90 transition disabled:opacity-50 dark:bg-secondary dark:text-primary"
         >
           {{ status === 'loading' ? 'Sending…' : 'Send message' }}
         </button>
 
         <div aria-live="polite" aria-atomic="true">
-          <p v-if="status === 'success'" class="text-center text-green-600 text-sm">
+          <p v-if="status === 'success'" class="text-center text-green-600 dark:text-green-400 text-sm">
             Message sent! I'll get back to you soon.
           </p>
-          <p v-else-if="status === 'error'" class="text-center text-red-500 text-sm">
+          <p v-else-if="status === 'error'" class="text-center text-red-500 dark:text-red-400 text-sm">
             Something went wrong. Please try again.
           </p>
         </div>
@@ -239,16 +277,71 @@
     </section>
 
     <footer class="max-w-2xl md:max-w-4xl mx-auto px-8 mt-24 pb-12 relative z-10">
-      <div class="border-t border-slate-200 pt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <p class="text-sm text-slate-400 text-center sm:text-left">
+      <div class="border-t border-slate-200 dark:border-slate-700 pt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div class="flex items-center gap-2 justify-center sm:justify-start">
+          <button
+            :class="[
+              'p-1.5 rounded-lg transition-colors',
+              themeMode === 'system'
+                ? 'bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-100'
+                : 'text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-400'
+            ]"
+            aria-label="System theme"
+            title="System"
+            @click="setTheme('system')"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="2" y1="20" x2="22" y2="20"></line>
+            </svg>
+          </button>
+          <button
+            :class="[
+              'p-1.5 rounded-lg transition-colors',
+              themeMode === 'light'
+                ? 'bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-100'
+                : 'text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-400'
+            ]"
+            aria-label="Light theme"
+            title="Light"
+            @click="setTheme('light')"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </button>
+          <button
+            :class="[
+              'p-1.5 rounded-lg transition-colors',
+              themeMode === 'dark'
+                ? 'bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-100'
+                : 'text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-400'
+            ]"
+            aria-label="Dark theme"
+            title="Dark"
+            @click="setTheme('dark')"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+        </div>
+        <p class="text-sm text-slate-400 dark:text-slate-500 text-center sm:text-left">
           © {{ year }} Olivier ZINSOU
         </p>
-        <SocialLinks :size="20" class="justify-center" />
       </div>
     </footer>
 
-    <div class="bg-pattern h-full absolute top-0 inset-x-0 z-0">
-      <div class="w-full h-full bg-gradient-to-t from-white"></div>
+    <div class="bg-pattern dark:bg-pattern-dark h-full absolute top-0 inset-x-0 z-0">
+      <div class="w-full h-full bg-gradient-to-t from-white dark:from-[#030712]"></div>
     </div>
   </div>
 </template>

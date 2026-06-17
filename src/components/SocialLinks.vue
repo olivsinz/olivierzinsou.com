@@ -33,7 +33,7 @@ defineProps({
       target="_blank"
       rel="noopener noreferrer"
       :aria-label="link.label"
-      class="text-slate-400 hover:text-primary transition-colors"
+      class="text-slate-400 hover:text-primary dark:text-slate-500 dark:hover:text-secondary transition-colors"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
