@@ -23,7 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 
-public/05-domeguek.png
 .eslintcache
 .playwright-mcp/
 CLAUDE.md
