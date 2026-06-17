@@ -28,11 +28,11 @@
   }
 
   const stack = [
-    { label: 'Backend',   skills: ['Laravel', 'PHP 8+', 'Symfony', 'Filament', 'REST API'] },
-    { label: 'Frontend',  skills: ['Vue.js 3', 'TypeScript', 'Inertia.js', 'Tailwind CSS', 'Alpine.js', 'Livewire'] },
+    { label: 'Backend',   skills: ['Laravel', 'PHP 8+', 'Symfony', 'Filament'] },
+    { label: 'Frontend',  skills: ['Vue.js 3', 'TypeScript', 'Inertia.js', 'Tailwind CSS', 'Livewire'] },
     { label: 'Database',  skills: ['PostgreSQL', 'MySQL', 'Redis'] },
-    { label: 'DevOps',    skills: ['AWS', 'Docker', 'GitHub Actions', 'Nginx', 'Laravel Forge', 'Vercel'] },
-    { label: 'Testing',   skills: ['Pest', 'PHPUnit', 'PHPStan', 'Larastan', 'Dusk', 'Laravel Pint', 'Sentry'] },
+    { label: 'DevOps',    skills: ['AWS', 'Docker', 'GitHub Actions', 'Laravel Forge', 'Vercel'] },
+    { label: 'Quality',   skills: ['Pest', 'PHPUnit', 'PHPStan', 'Sentry'] },
   ];
 
   const projects = [
