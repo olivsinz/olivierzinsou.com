@@ -1,6 +1,6 @@
 # olivierzinsou.com
 
-Personal portfolio of Olivier ZINSOU — Senior Full Stack Developer.
+Personal portfolio of Olivier ZINSOU, Senior Full Stack Developer.
 
 **Live:** https://olivierzinsou.vercel.app
 
@@ -32,3 +32,5 @@ npm run dev
 ## Architecture
 
 Single-file SPA with all content in `src/components/Index.vue`. Theme configured via `@theme` in `src/style.css` (Tailwind v4 CSS-first approach).
+
+Supports system/light/dark mode via class-based `@custom-variant`, toggled in the footer and persisted to `localStorage`.
