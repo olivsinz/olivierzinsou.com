@@ -55,7 +55,7 @@
       const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ access_key: WEB3FORMS_KEY, ...form.value }),
+        body: JSON.stringify({ access_key: WEB3FORMS_KEY, subject: 'New message from olivierzinsou.xyz', ...form.value }),
       });
       const data = await res.json();
       status.value = data.success ? 'success' : 'error';
@@ -102,7 +102,7 @@
 <template>
   <div class="min-h-full pt-32">
     <section
-      class="max-w-2xl md:max-w-4xl mx-auto px-8 relative z-10 md:pt-10"
+      class="max-w-2xl md:max-w-4xl mx-auto px-8 relative z-10 md:pt-10 motion-safe:animate-fade-up"
     >
       <div class="flex flex-col md:flex-row md:items-center md:gap-12">
         <div class="flex flex-col items-center shrink-0 mb-8 md:mb-0">
@@ -116,10 +116,10 @@
             decoding="sync"
             class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover ring-2 ring-slate-200 dark:ring-slate-700"
           />
-          <div class="inline-flex items-center gap-2 bg-green-50 text-green-700 text-sm font-medium px-3 py-1 rounded-full border border-green-200 dark:bg-green-500/10 dark:text-green-400 dark:border-green-500/30 mt-4">
+          <a href="#contact" class="inline-flex items-center gap-2 bg-green-50 text-green-700 text-sm font-medium px-3 py-1 rounded-full border border-green-200 dark:bg-green-500/10 dark:text-green-400 dark:border-green-500/30 mt-4 hover:bg-green-100 dark:hover:bg-green-500/20 transition-colors">
             <span class="w-2 h-2 rounded-full bg-green-500 dark:bg-green-400 animate-pulse"></span>
             Open to work
-          </div>
+          </a>
         </div>
         <div class="text-center md:text-left">
           <h1 class="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 md:mb-6 text-slate-800 dark:text-white">
@@ -136,7 +136,7 @@
       </div>
     </section>
 
-    <section class="max-w-2xl md:max-w-4xl mx-auto px-8 mt-16 md:mt-24 relative z-10">
+    <section class="max-w-2xl md:max-w-4xl mx-auto px-8 mt-16 md:mt-24 relative z-10 motion-safe:animate-fade-up motion-safe:[animation-delay:120ms]">
       <h2 class="text-xl font-semibold text-slate-800 dark:text-white mb-6">Tech stack</h2>
       <div class="flex flex-col gap-4">
         <div v-for="group in stack" :key="group.label" class="flex flex-col sm:flex-row sm:items-center gap-2">
@@ -154,7 +154,7 @@
       </div>
     </section>
 
-    <section class="max-w-6xl mx-auto px-4 mt-16 md:mt-32 relative z-10">
+    <section class="max-w-6xl mx-auto px-4 mt-16 md:mt-32 relative z-10 motion-safe:animate-fade-up motion-safe:[animation-delay:240ms]">
       <h2
         class="text-4xl text-center font-bold sm:px-8 text-slate-800 dark:text-white"
       >
@@ -214,7 +214,7 @@
       </div>
     </section>
 
-    <section class="max-w-2xl mx-auto px-8 mt-24 md:mt-40 relative z-10 text-center">
+    <section id="contact" class="max-w-2xl mx-auto px-8 mt-24 md:mt-40 relative z-10 text-center motion-safe:animate-fade-up motion-safe:[animation-delay:360ms]">
       <h2 class="text-4xl font-bold text-slate-800 dark:text-white">Get in touch</h2>
       <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">
         Have a project in mind or just want to say hi? Drop me a message.
@@ -345,26 +345,3 @@
     </div>
   </div>
 </template>
-
-<style scoped>
-  section {
-    animation: fadeIn 1s ease-out;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(5px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    section {
-      animation: none;
-    }
-  }
-</style>
