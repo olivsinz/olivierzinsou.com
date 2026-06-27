@@ -1,6 +1,6 @@
-# olivierzinsou.com
+# olivierzinsou.xyz
 
-Personal portfolio of Olivier ZINSOU, Senior Full Stack Developer.
+My personal portfolio.
 
 **Live:** https://olivierzinsou.xyz
 
@@ -11,6 +11,7 @@ Personal portfolio of Olivier ZINSOU, Senior Full Stack Developer.
 - [Tailwind CSS v4](https://tailwindcss.com)
 - [ESLint 10](https://eslint.org) with flat config
 - [Web3Forms](https://web3forms.com) for contact form
+- [Vercel Analytics](https://vercel.com/analytics) + [Speed Insights](https://vercel.com/docs/speed-insights)
 
 ## Local dev
 
