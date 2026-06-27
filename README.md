@@ -2,7 +2,7 @@
 
 Personal portfolio of Olivier ZINSOU, Senior Full Stack Developer.
 
-**Live:** https://olivierzinsou.vercel.app
+**Live:** https://olivierzinsou.xyz
 
 ## Stack
 
