@@ -101,7 +101,13 @@
 
 <template>
   <div class="min-h-full pt-32">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:rounded-lg focus:bg-primary focus:text-white dark:focus:bg-secondary dark:focus:text-primary text-sm font-medium"
+    >Skip to content</a>
+
     <section
+      id="main-content"
       class="max-w-2xl md:max-w-4xl mx-auto px-8 relative z-10 md:pt-10 motion-safe:animate-fade-up"
     >
       <div class="flex flex-col md:flex-row md:items-center md:gap-12">
