@@ -7,7 +7,7 @@ My personal portfolio.
 ## Stack
 
 - [Vue 3.5](https://vuejs.org) (Composition API, `<script setup>`)
-- [Vite 6](https://vitejs.dev)
+- [Vite 8](https://vitejs.dev)
 - [Tailwind CSS v4](https://tailwindcss.com)
 - [ESLint 10](https://eslint.org) with flat config
 - [Web3Forms](https://web3forms.com) for contact form
