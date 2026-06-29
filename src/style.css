@@ -46,7 +46,7 @@ html.dark {
 }
 
 @theme {
-  --font-sans: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Outfit Variable', ui-sans-serif, system-ui, sans-serif;
   --color-primary: #0e0c29;
   --color-secondary: #00c4cc;
   --animate-fade-up: fade-up 0.7s ease-out both;
