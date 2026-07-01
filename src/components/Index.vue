@@ -128,14 +128,23 @@
           </a>
         </div>
         <div class="text-center md:text-left">
-          <h1 class="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 md:mb-6 text-slate-800 dark:text-white">
-            Hi, I'm Olivier ZINSOU 👋
+          <p class="inline-flex items-center gap-2 justify-center md:justify-start text-sm sm:text-base font-semibold tracking-[0.25em] uppercase text-slate-500 dark:text-slate-400 mb-3">
+            <span class="w-2 h-2 rounded-full bg-secondary"></span>
+            Senior Full Stack Developer
+          </p>
+          <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 md:mb-6 leading-[1.05] text-slate-800 dark:text-white">
+            Olivier
+            <span class="relative inline-block">
+              <span class="absolute inset-x-0 bottom-1 h-3 sm:h-4 md:h-5 bg-secondary/40 dark:bg-secondary/25 -z-10 rounded-sm"></span>
+              ZINSOU
+            </span>
+            👋
           </h1>
           <p class="text-lg sm:text-xl leading-relaxed text-slate-600 dark:text-slate-300">
-            Senior Full Stack Developer with 8+ years of experience building SaaS
-            platforms and enterprise applications. I specialize in PHP/Laravel and
-            Vue.js, with a focus on clean architecture, automated testing, and
-            shipping reliable products end to end.
+            8+ years of experience building SaaS platforms and enterprise
+            applications. I specialize in PHP/Laravel and Vue.js, with a focus on
+            clean architecture, automated testing, and shipping reliable products
+            end to end.
           </p>
           <SocialLinks :size="24" class="mt-6 justify-center md:justify-start" />
         </div>
@@ -143,6 +152,7 @@
     </section>
 
     <section class="max-w-2xl md:max-w-4xl mx-auto px-8 mt-16 md:mt-24 relative z-10 motion-safe:animate-fade-up motion-safe:[animation-delay:120ms]">
+      <span class="block text-sm font-semibold tracking-[0.25em] text-primary dark:text-secondary mb-3">01</span>
       <h2 class="text-xl font-semibold text-slate-800 dark:text-white mb-6">Tech stack</h2>
       <div class="flex flex-col gap-4">
         <div v-for="group in stack" :key="group.label" class="flex flex-col sm:flex-row sm:items-center gap-2">
@@ -151,7 +161,7 @@
             <span
               v-for="skill in group.skills"
               :key="skill"
-              class="text-sm px-3 py-1 rounded-full bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300"
+              class="text-sm px-3 py-1 rounded-full bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 hover:bg-primary/10 hover:text-primary dark:hover:bg-secondary/10 dark:hover:text-secondary transition-colors"
             >
               {{ skill }}
             </span>
@@ -161,6 +171,7 @@
     </section>
 
     <section class="max-w-6xl mx-auto px-4 mt-16 md:mt-32 relative z-10 motion-safe:animate-fade-up motion-safe:[animation-delay:240ms]">
+      <span class="block text-center text-sm font-semibold tracking-[0.25em] text-primary dark:text-secondary mb-3">02</span>
       <h2
         class="text-4xl text-center font-bold sm:px-8 text-slate-800 dark:text-white"
       >
@@ -170,12 +181,17 @@
         <div
           class="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 sm:gap-y-16"
         >
-          <div v-for="(project, index) in projects" :key="project.name" class="group">
+          <div
+            v-for="(project, index) in projects"
+            :key="project.name"
+            class="group motion-safe:animate-fade-up"
+            :style="{ animationDelay: `${360 + index * 120}ms` }"
+          >
             <component
               :is="project.available === false ? 'div' : 'a'"
               v-bind="project.available === false ? {} : { href: project.link, target: '_blank', rel: 'noopener noreferrer' }"
             >
-              <div class="relative overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-700 transition-[transform,box-shadow,border-color] duration-300 group-hover:-translate-y-0.5 group-hover:shadow-lg dark:group-hover:shadow-none dark:group-hover:border-slate-500">
+              <div class="relative overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-700 transition-[transform,box-shadow,border-color] duration-300 group-hover:-translate-y-0.5 group-hover:shadow-xl group-hover:shadow-primary/10 dark:group-hover:shadow-secondary/10 group-hover:border-primary/40 dark:group-hover:border-secondary/50">
                 <img
                   :src="project.image"
                   :alt="project.name"
@@ -221,6 +237,7 @@
     </section>
 
     <section id="contact" class="max-w-2xl mx-auto px-8 mt-24 md:mt-40 relative z-10 text-center motion-safe:animate-fade-up motion-safe:[animation-delay:360ms]">
+      <span class="block text-sm font-semibold tracking-[0.25em] text-primary dark:text-secondary mb-3">03</span>
       <h2 class="text-4xl font-bold text-slate-800 dark:text-white">Get in touch</h2>
       <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">
         Have a project in mind or just want to say hi? Drop me a message.
@@ -289,7 +306,7 @@
             :class="[
               'p-1.5 rounded-lg transition-colors',
               themeMode === 'system'
-                ? 'bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-100'
+                ? 'bg-slate-200 dark:bg-slate-800 text-primary dark:text-secondary'
                 : 'text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-400'
             ]"
             aria-label="System theme"
@@ -305,7 +322,7 @@
             :class="[
               'p-1.5 rounded-lg transition-colors',
               themeMode === 'light'
-                ? 'bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-100'
+                ? 'bg-slate-200 dark:bg-slate-800 text-primary dark:text-secondary'
                 : 'text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-400'
             ]"
             aria-label="Light theme"
@@ -328,7 +345,7 @@
             :class="[
               'p-1.5 rounded-lg transition-colors',
               themeMode === 'dark'
-                ? 'bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-100'
+                ? 'bg-slate-200 dark:bg-slate-800 text-primary dark:text-secondary'
                 : 'text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-400'
             ]"
             aria-label="Dark theme"
@@ -347,6 +364,7 @@
     </footer>
 
     <div class="bg-pattern dark:bg-pattern-dark h-full absolute top-0 inset-x-0 z-0">
+      <div class="bg-hero-glow absolute inset-x-0 top-0 h-[560px]"></div>
       <div class="w-full h-full bg-gradient-to-t from-white dark:from-[#030712]"></div>
     </div>
   </div>
