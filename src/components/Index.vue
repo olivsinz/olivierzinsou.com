@@ -200,7 +200,10 @@
                   decoding="async"
                   width="1349"
                   height="1350"
-                  class="w-full h-auto"
+                  :class="[
+                    'w-full h-auto grayscale transition-[filter,transform] duration-500',
+                    project.available !== false && 'group-hover:grayscale-0 group-hover:scale-[1.03]',
+                  ]"
                 />
                 <span
                   v-if="project.available === false"
