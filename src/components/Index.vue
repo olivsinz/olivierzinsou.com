@@ -370,5 +370,6 @@
       <div class="bg-hero-glow absolute inset-x-0 top-0 h-[560px]"></div>
       <div class="w-full h-full bg-gradient-to-t from-white dark:from-[#030712]"></div>
     </div>
+    <div class="bg-noise fixed inset-0 z-0 pointer-events-none opacity-[0.035] dark:opacity-[0.06]"></div>
   </div>
 </template>
