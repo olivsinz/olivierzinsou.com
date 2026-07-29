@@ -5,16 +5,21 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite-ssg build",
     "preview": "vite preview",
     "lint": "eslint --fix src",
     "format": "prettier .  --write"
   },
   "dependencies": {
     "@fontsource-variable/outfit": "^5.2.8",
+    "@unhead/vue": "^2.1.16",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
-    "vue": "^3.5.38"
+    "highlight.js": "^11.11.1",
+    "markdown-it": "^14.3.0",
+    "vite-ssg": "^28.3.0",
+    "vue": "^3.5.38",
+    "vue-router": "^4.6.4"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
