@@ -27,6 +27,6 @@ First, it's harmless and easy to fix. You don't need to restart a session or dig
 
 Second, and more useful long-term: it's a good, concrete reminder of what these tools actually are. Not rule-based translators with a hard-coded language switch. Statistical predictors, extremely good ones, that are shaped by whatever context they just processed. Most of the time that's invisible, because most of the time the prediction lands exactly where you'd expect. Every so often, especially at a sharp context transition, you get to see the mechanism show through.
 
-> Not rule-based translators with a hard-coded language switch. Statistical predictors, shaped by whatever context they just processed.
+> A language slip is a one-line correction, not a deeper failure.
 
 If you're building multilingual workflows on top of these models, that's the practical takeaway: expect occasional language drift right after heavy single-language context, treat it as a one-line correction, and don't over-interpret it as a deeper failure. It isn't one.
