@@ -25,8 +25,8 @@ If you work with AI coding tools across languages, this is worth filing away for
 
 First, it's harmless and easy to fix. You don't need to restart a session or dig into settings, you just say "in French, please" and the model corrects immediately. It's a surface-level slip, not a sign the tool lost track of the actual work (the code, the task, the state all stayed perfectly intact through both incidents).
 
-Second, and more useful long-term: it's a good, concrete reminder of what these tools actually are. Not rule-based translators with a hard-coded language switch. Statistical predictors, extremely good ones, that are shaped by whatever context they just processed. Most of the time that's invisible, because most of the time the prediction lands exactly where you'd expect. Every so often, especially at a sharp context transition, you get to see the mechanism show through.
+Second, and more useful in the long run: this is a concrete reminder of what these tools really are. They are not rule-based translators with a hard-coded language switch. They are statistical predictors, extremely good ones, shaped by whatever context they just processed. Most of the time you never notice, because the prediction lands exactly where you'd expect. Every so often, at a sharp context transition, you get to see the mechanism show through.
 
-> A language slip is a one-line correction, not a deeper failure.
+> They are not rule-based translators with a hard-coded language switch. They are statistical predictors, shaped by whatever context they just processed.
 
 If you're building multilingual workflows on top of these models, that's the practical takeaway: expect occasional language drift right after heavy single-language context, treat it as a one-line correction, and don't over-interpret it as a deeper failure. It isn't one.
