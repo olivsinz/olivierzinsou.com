@@ -45,10 +45,11 @@
             <div class="flex items-center gap-3 flex-wrap">
               <time v-if="post.date" class="text-sm font-medium text-slate-500 dark:text-slate-400">{{ post.date }}</time>
               <span
-                v-if="post.category"
-                :class="['text-xs font-semibold px-2.5 py-1 rounded-full', categoryColor(post.category)]"
+                v-for="category in post.categories"
+                :key="category"
+                :class="['text-xs font-semibold px-2.5 py-1 rounded-full', categoryColor(category)]"
               >
-                {{ post.category }}
+                {{ category }}
               </span>
             </div>
             <h2 class="mt-2 text-2xl font-semibold text-slate-800 dark:text-white group-hover:text-primary dark:group-hover:text-secondary transition-colors">

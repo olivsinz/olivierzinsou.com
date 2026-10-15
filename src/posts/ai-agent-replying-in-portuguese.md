@@ -2,7 +2,7 @@
 title: 'Why My AI Coding Agent Started Replying in Portuguese'
 date: '2026-07-28'
 excerpt: 'Mid-conversation in French, Claude Code answered in Portuguese. Twice. Both slips landed right after a long block of English.'
-category: 'Tooling'
+categories: 'AI'
 ---
 
 I was deep in a WordPress build, pair-programming in French with Claude Code, when it happened: mid-conversation, the agent replied in Portuguese. Not a word or two, a full response. I switched back to French, we kept working, and twenty minutes later it happened again.

@@ -2,7 +2,7 @@
 title: 'CLAUDE.md rules are suggestions. Hooks are enforcement.'
 date: '2026-07-06'
 excerpt: 'My coding agent respected a project rule right up until it did not. So I turned two of those rules into hooks instead of prose.'
-category: 'Tooling'
+categories: 'Tooling, AI'
 ---
 
 My coding agent respected the rule right up until it didn't.
