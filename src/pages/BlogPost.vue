@@ -157,8 +157,19 @@
     font-weight: 600;
   }
   .post-content :deep(a) {
-    color: var(--color-secondary);
+    color: color-mix(in srgb, var(--color-secondary) 60%, var(--color-primary));
     text-decoration: underline;
+    text-underline-offset: 0.2em;
+    transition: color 0.15s;
+  }
+  .post-content :deep(a:hover) {
+    color: var(--color-primary);
+  }
+  .dark .post-content :deep(a) {
+    color: var(--color-secondary);
+  }
+  .dark .post-content :deep(a:hover) {
+    color: #fff;
   }
   .post-content :deep(ul),
   .post-content :deep(ol) {
