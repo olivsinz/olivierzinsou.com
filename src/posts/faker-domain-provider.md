@@ -1,17 +1,19 @@
 ---
-title: 'Stop Seeding With Generic Faker Data: Write a Domain Provider'
+title: 'Stop Seeding With Generic Faker Data: Write a Domain Provider in Laravel'
 date: '2026-06-29'
-excerpt: 'Generic faker data quietly undermines a stakeholder demo. Teach Faker your domain once with a small provider, and keep using factories everywhere.'
+excerpt: 'In a Laravel app, generic Faker data quietly undermines a stakeholder demo. Teach Faker your domain once with a small PHP provider, and keep using factories and seeders everywhere.'
 category: 'Tooling'
 ---
 
-Your seeder runs `fake()->city()` and your local database fills with "Lake Gerardchester" and "Port Hettie". For a unit test, fine. Nobody reads it.
+Your Laravel seeder runs `fake()->city()` and your local database fills with "Lake Gerardchester" and "Port Hettie". For a unit test, fine. Nobody reads it.
 
-But the moment you demo the app to a stakeholder who knows the domain, generic faker data quietly undermines you. A directory of venues full of "123 Fake St, Smithville" reads as a toy. Realistic data, names and places that look like the real thing, makes the same screen feel like a product. The fix isn't to hand-write a seeder full of literals. It's to teach Faker your domain once, then keep using factories everywhere.
+But the moment you demo the app to a stakeholder who knows the domain, generic Faker data quietly undermines you. A directory of venues full of "123 Fake St, Smithville" reads as a toy. Realistic data, names and places that look like the real thing, makes the same screen feel like a product. The fix isn't to hand-write a seeder full of literals. It's to teach Faker your domain once, then keep using factories and seeders as usual.
+
+This is a walkthrough for Laravel and plain PHP: write a custom Faker provider, register it in a Laravel app, then use it from a factory and a seeder. If you already use `fake()` in your factories, you can follow along as is.
 
 ### 1. A provider that knows your domain
 
-A Faker provider is just a class extending `Faker\Provider\Base` with public methods. Curate a few short lists and expose one small method per thing a factory needs:
+A Faker provider is just a PHP class extending `Faker\Provider\Base` with public methods. Curate a few short lists and expose one small method per thing a factory needs:
 
 ```php filename="app/Faker/VenueFakerProvider.php"
 use Faker\Provider\Base;
@@ -49,11 +51,11 @@ final class VenueFakerProvider extends Base
 }
 ```
 
-Small methods that return strings compose better in factories than one method returning an array. And `numerify` is the right tool for any identifier with a fixed layout: phone numbers, tax IDs, reference codes. The provider is where your domain's formats live.
+Small methods that return strings compose better in factories than one method returning an array. And `numerify` is the right tool for any identifier with a fixed layout: phone numbers, tax IDs, reference codes. The provider is where your domain's formats live. (`private const array` needs PHP 8.3 or newer. On older versions, use a `private const AREAS = [...]` without the type.)
 
-### 2. Register it, in dev and test only
+### 2. Register it in Laravel, in dev and test only
 
-Here's the part that's easy to get wrong. `fake()` and the `$this->faker` inside factories do not resolve the same generator. Attach your provider to only one and half your factories won't know the new methods. Give the registration its own service provider and add the provider to both:
+Here's the part that's easy to get wrong. In Laravel, `fake()` and the `$this->faker` inside factories do not resolve the same generator. Attach your provider to only one and half your factories won't know the new methods. Give the registration its own service provider and add the provider to both:
 
 ```php filename="app/Providers/FakerServiceProvider.php"
 final class FakerServiceProvider extends ServiceProvider
@@ -79,25 +81,60 @@ public function register(): void
 }
 ```
 
-Two details matter. First, an allowlist (`local`, `testing`) is safer than a denylist like "anything but production": a staging box shouldn't be seeding fake venues either. Second, Faker is a dev dependency. On a `--no-dev` install the `Generator` class isn't there at all, so the `class_exists` check keeps the app from touching a class that doesn't exist.
+Two details matter. First, an allowlist (`local`, `testing`) is safer than a denylist like "anything but production": a staging box shouldn't be seeding fake venues either. Second, Faker is a dev dependency in Laravel. On a `composer install --no-dev` the `Generator` class isn't there at all, so the `class_exists` check keeps the app from touching a class that doesn't exist.
 
-### 3. Use it like any other faker method
+### 3. Use it in a factory
 
-```php
-public function definition(): array
+Your provider methods are now ordinary Faker methods, available on `fake()` like `name()` or `email()`:
+
+```php filename="database/factories/VenueFactory.php"
+final class VenueFactory extends Factory
 {
-    return [
-        'name' => fake()->venueName(),
-        'host' => fake()->venueHost(),
-        'area' => fake()->venueArea(),
-        'code' => fake()->optional()->venueCode(),
-    ];
+    public function definition(): array
+    {
+        return [
+            'name' => fake()->venueName(),
+            'host' => fake()->venueHost(),
+            'area' => fake()->venueArea(),
+            'code' => fake()->optional()->venueCode(),
+        ];
+    }
 }
 ```
 
-Every factory, every seeder, every test now produces data that looks like your domain, with zero literals scattered around. And because they're ordinary Faker methods, modifiers like `optional()` and `unique()` work on them too.
+Modifiers like `optional()` and `unique()` work on them too, because they're regular Faker methods.
 
-### 4. Watch `unique()` against short lists
+### 4. Use it in a seeder
+
+The factory is where the payoff starts. The seeder is where you see it. A seeder only has to ask for rows:
+
+```php filename="database/seeders/VenueSeeder.php"
+final class VenueSeeder extends Seeder
+{
+    public function run(): void
+    {
+        Venue::factory()->count(12)->create();
+    }
+}
+```
+
+Call it from `DatabaseSeeder`, then rebuild the database:
+
+```bash
+php artisan migrate:fresh --seed
+```
+
+Your `venues` table now holds 12 rows that look like this, instead of a wall of lorem ipsum:
+
+```
+Cafe Riverside        Maria Alvarez   Riverside         VN-48213
+Workshop Old Town     David Okoye     Old Town          null
+Gallery Hillside      Amina Rahman    Hillside          VN-90577
+```
+
+Every factory, every seeder, every test now produces data that looks like your domain, with zero literals scattered around. And the next teammate who runs `migrate:fresh --seed` gets a believable demo database without asking you for a SQL dump.
+
+### 5. Watch `unique()` against short lists
 
 That last part has a trap. `fake()->unique()->venueArea()` can only return five different values. The sixth call throws an `OverflowException`, and it usually does so deep inside a seeder you haven't run in a month.
 
