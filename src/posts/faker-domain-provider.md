@@ -1,8 +1,8 @@
 ---
 title: 'Stop Seeding With Generic Faker Data: Write a Domain Provider in Laravel'
-date: '2026-06-29'
+date: '2026-10-15'
 excerpt: 'In a Laravel app, generic Faker data quietly undermines a stakeholder demo. Teach Faker your domain once with a small PHP provider, and keep using factories and seeders everywhere.'
-category: 'Tooling'
+categories: 'Tooling'
 ---
 
 Your Laravel seeder runs `fake()->city()` and your local database fills with "Lake Gerardchester" and "Port Hettie". For a unit test, fine. Nobody reads it.
@@ -132,7 +132,7 @@ Workshop Old Town     David Okoye     Old Town          null
 Gallery Hillside      Amina Rahman    Hillside          VN-90577
 ```
 
-Every factory, every seeder, every test now produces data that looks like your domain, with zero literals scattered around. And the next teammate who runs `migrate:fresh --seed` gets a believable demo database without asking you for a SQL dump.
+Every factory, every seeder, every test now produces data that looks like your domain, with zero literals scattered around. And the next teammate who runs `migrate:fresh --seed` gets a believable demo database without asking you for a SQL dump. And when those rows reach a public page, map them through a DTO first, as described in [Your model has fields the public should never see](/blog/dto-view-boundary).
 
 ### 5. Watch `unique()` against short lists
 

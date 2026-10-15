@@ -69,6 +69,14 @@ function parseFrontmatter(raw) {
   return { data, content: match[2] }
 }
 
+function parseCategories(raw) {
+  if (!raw) return []
+  return raw
+    .split(',')
+    .map((category) => category.trim())
+    .filter(Boolean)
+}
+
 const files = import.meta.glob('../posts/*.md', { eager: true, query: '?raw', import: 'default' })
 
 const posts = Object.entries(files)
@@ -80,7 +88,7 @@ const posts = Object.entries(files)
       title: data.title ?? slug,
       date: data.date ?? null,
       excerpt: data.excerpt ?? '',
-      category: data.category ?? null,
+      categories: parseCategories(data.categories ?? data.category),
       html: md.render(content),
     }
   })

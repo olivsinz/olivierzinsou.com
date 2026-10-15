@@ -2,7 +2,7 @@
 title: 'Your model has fields the public should never see. Map to a DTO.'
 date: '2026-06-29'
 excerpt: 'A public page only needs a few fields. The Eloquent model behind it knows a lot more. Here is how a DTO stops the extra fields from riding along.'
-category: 'Architecture'
+categories: 'Architecture'
 ---
 
 A public directory page needs very little: where each venue is, and when it meets. The Eloquent model behind it knows much more. It carries the host's full name, an internal reference code used only in the back office, an active/inactive status, timestamps. None of that belongs on a public page, and one of those fields is a real person's name.
@@ -46,3 +46,5 @@ The host name and the internal code are not omitted by accident. They're absent 
 A DTO is not, by itself, a security feature. If you still hand the model to the view somewhere, the DTO protects nothing. The safety comes from a rule the DTO makes easy to keep: the view layer only ever receives DTOs, never Eloquent models. The DTO is the allowlist. The discipline is never bypassing it.
 
 Once that rule holds, the question "could this page leak a field?" has a single, readable answer: look at the DTO. If it isn't in there, it doesn't go out.
+
+To exercise that boundary with believable rows instead of lorem ipsum, seed your local database with a [domain-specific Faker provider](/blog/faker-domain-provider).

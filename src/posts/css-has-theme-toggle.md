@@ -2,7 +2,7 @@
 title: 'Live light/dark mode switching, zero JavaScript'
 date: '2026-07-12'
 excerpt: 'Nine visual-direction concepts, each with its own light and dark mode, flipped live with a hidden checkbox and one CSS :has() rule.'
-category: 'CSS'
+categories: 'CSS'
 ---
 
 Nine visual-direction concepts for a project this week, each needing its own light mode and dark mode. Not one inverted from the other, real separately designed pairs.

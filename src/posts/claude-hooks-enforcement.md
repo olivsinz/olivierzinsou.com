@@ -2,12 +2,12 @@
 title: 'CLAUDE.md rules are suggestions. Hooks are enforcement.'
 date: '2026-07-06'
 excerpt: 'My coding agent respected a project rule right up until it did not. So I turned two of those rules into hooks instead of prose.'
-category: 'Tooling'
+categories: 'Tooling, AI'
 ---
 
 My coding agent respected the rule right up until it didn't.
 
-Project instructions said: never edit the shadcn-vue primitives in `components/ui`. Most days the agent complied. But instructions written in prose are suggestions, and suggestions eventually get ignored under pressure.
+Project instructions said: never edit the shadcn-vue primitives in `components/ui`. Most days the agent complied. But instructions written in prose are suggestions, and suggestions eventually get ignored under pressure. (Agents drift in other ways too: mine once [answered in Portuguese mid-conversation](/blog/ai-agent-replying-in-portuguese).)
 
 So I turned two of those rules into Claude Code hooks:
 

@@ -2,7 +2,7 @@
 title: 'Why My AI Coding Agent Started Replying in Portuguese'
 date: '2026-07-28'
 excerpt: 'Mid-conversation in French, Claude Code answered in Portuguese. Twice. Both slips landed right after a long block of English.'
-category: 'Tooling'
+categories: 'AI'
 ---
 
 I was deep in a WordPress build, pair-programming in French with Claude Code, when it happened: mid-conversation, the agent replied in Portuguese. Not a word or two, a full response. I switched back to French, we kept working, and twenty minutes later it happened again.
@@ -29,4 +29,4 @@ Second, and more useful in the long run: this is a concrete reminder of what the
 
 > They are not rule-based translators with a hard-coded language switch. They are statistical predictors, shaped by whatever context they just processed.
 
-If you're building multilingual workflows on top of these models, that's the practical takeaway: expect occasional language drift right after heavy single-language context, treat it as a one-line correction, and don't over-interpret it as a deeper failure. It isn't one.
+If you're building multilingual workflows on top of these models, that's the practical takeaway: expect occasional language drift right after heavy single-language context, treat it as a one-line correction, and don't over-interpret it as a deeper failure. It isn't one. And for a rule you need followed every single time, don't leave it to the model's judgment at all: [wire it as a hook](/blog/claude-hooks-enforcement).
