@@ -1,6 +1,6 @@
 ---
 title: 'Stop Seeding With Generic Faker Data: Write a Domain Provider in Laravel'
-date: '2026-06-29'
+date: '2026-10-15'
 excerpt: 'In a Laravel app, generic Faker data quietly undermines a stakeholder demo. Teach Faker your domain once with a small PHP provider, and keep using factories and seeders everywhere.'
 categories: 'Tooling'
 ---
