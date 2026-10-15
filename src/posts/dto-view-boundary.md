@@ -46,3 +46,5 @@ The host name and the internal code are not omitted by accident. They're absent 
 A DTO is not, by itself, a security feature. If you still hand the model to the view somewhere, the DTO protects nothing. The safety comes from a rule the DTO makes easy to keep: the view layer only ever receives DTOs, never Eloquent models. The DTO is the allowlist. The discipline is never bypassing it.
 
 Once that rule holds, the question "could this page leak a field?" has a single, readable answer: look at the DTO. If it isn't in there, it doesn't go out.
+
+To exercise that boundary with believable rows instead of lorem ipsum, seed your local database with a [domain-specific Faker provider](/blog/faker-domain-provider).

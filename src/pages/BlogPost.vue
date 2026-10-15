@@ -1,6 +1,6 @@
 <script setup>
   import { computed, onMounted, onUnmounted, ref } from 'vue';
-  import { useRoute } from 'vue-router';
+  import { useRoute, useRouter } from 'vue-router';
   import { useHead } from '@unhead/vue';
   import { getPost } from '../lib/posts';
   import { categoryColor } from '../lib/categories';
@@ -9,9 +9,21 @@
   const SITE_URL = 'https://olivierzinsou.xyz';
 
   const route = useRoute();
+  const router = useRouter();
   const post = computed(() => getPost(route.params.slug));
 
   const readingProgress = ref(0);
+
+  function onContentClick(event) {
+    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+    const anchor = event.target.closest('a');
+    const href = anchor?.getAttribute('href');
+    if (!href || !href.startsWith('/') || href.startsWith('//')) return;
+
+    event.preventDefault();
+    router.push(href);
+  }
 
   function updateReadingProgress() {
     const scrollable = document.documentElement.scrollHeight - window.innerHeight;
@@ -93,7 +105,7 @@
         <span class="text-sm font-medium text-slate-600 dark:text-slate-300">Olivier ZINSOU</span>
       </div>
       <!-- eslint-disable-next-line vue/no-v-html -- content is our own markdown from src/posts, never user input -->
-      <div class="post-content mt-8 text-slate-700 dark:text-slate-300" v-html="post.html"></div>
+      <div class="post-content mt-8 text-slate-700 dark:text-slate-300" @click="onContentClick" v-html="post.html"></div>
 
       <aside class="mt-16 flex items-center gap-4 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/40 p-6">
         <img

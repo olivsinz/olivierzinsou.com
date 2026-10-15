@@ -132,7 +132,7 @@ Workshop Old Town     David Okoye     Old Town          null
 Gallery Hillside      Amina Rahman    Hillside          VN-90577
 ```
 
-Every factory, every seeder, every test now produces data that looks like your domain, with zero literals scattered around. And the next teammate who runs `migrate:fresh --seed` gets a believable demo database without asking you for a SQL dump.
+Every factory, every seeder, every test now produces data that looks like your domain, with zero literals scattered around. And the next teammate who runs `migrate:fresh --seed` gets a believable demo database without asking you for a SQL dump. And when those rows reach a public page, map them through a DTO first, as described in [Your model has fields the public should never see](/blog/dto-view-boundary).
 
 ### 5. Watch `unique()` against short lists
 
