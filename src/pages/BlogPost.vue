@@ -218,6 +218,9 @@
     padding-left: 2.25em;
     position: relative;
   }
+  .post-content :deep(.code-line:empty)::after {
+    content: '\200b';
+  }
   .post-content :deep(.code-line)::before {
     counter-increment: line;
     content: counter(line);
